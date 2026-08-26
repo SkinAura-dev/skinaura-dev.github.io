@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>SkinAura — Check If Skincare Fits Your Routine</title>
+
+  <meta
+    name="description"
+    content="Before you add a skincare product to your routine, check whether it actually fits. SkinAura helps you review ingredients, overlap, timing, and routine fit."
+  >
+
+  <link rel="canonical" href="https://skinaura-dev.github.io/">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, #10244d 0%, #07101f 38%, #030712 100%);
+      color: #f8fafc;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrap {
+      width: min(1080px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 24px 0;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -.4px;
+    }
+
+    .brand span {
+      color: #60a5fa;
+    }
+
+    .hero {
+      padding: 90px 0 70px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      border: 1px solid rgba(96,165,250,.4);
+      border-radius: 999px;
+      color: #93c5fd;
+      background: rgba(37,99,235,.08);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 850px;
+      margin: 24px auto 18px;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -2.5px;
+    }
+
+    h1 span {
+      color: #60a5fa;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto;
+      color: #cbd5e1;
+      font-size: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-weight: 750;
+    }
+
+    .primary {
+      background: #3b82f6;
+      color: white;
+    }
+
+    .secondary {
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.05);
+    }
+
+    section {
+      padding: 70px 0;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: clamp(30px, 5vw, 46px);
+      margin: 0 0 14px;
+      letter-spacing: -1px;
+    }
+
+    .section-intro {
+      max-width: 700px;
+      text-align: center;
+      margin: 0 auto 36px;
+      color: #94a3b8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      padding: 26px;
+      border-radius: 18px;
+      background: rgba(15,23,42,.72);
+      border: 1px solid rgba(148,163,184,.14);
+    }
+
+    .card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+
+    .card p {
+      margin: 0;
+      color: #94a3b8;
+    }
+
+    .questions {
+      max-width: 800px;
+      margin: 0 auto;
+      display: grid;
+      gap: 12px;
+    }
+
+    .question {
+      background: rgba(15,23,42,.72);
+      border: 1px solid rgba(148,163,184,.14);
+      border-radius: 14px;
+      padding: 18px 20px;
+      font-weight: 650;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 70px 30px;
+      border-radius: 24px;
+      background: linear-gradient(
+        135deg,
+        rgba(37,99,235,.22),
+        rgba(59,130,246,.08)
+      );
+      border: 1px solid rgba(96,165,250,.22);
+    }
+
+    .cta p {
+      max-width: 650px;
+      margin: 12px auto 0;
+      color: #cbd5e1;
+    }
+
+    footer {
+      margin-top: 70px;
+      padding: 32px 0;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      color: #94a3b8;
+    }
+
+    @media (max-width: 760px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 65px;
+      }
+
+      h1 {
+        letter-spacing: -1.5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <div class="brand">Skin<span>Aura</span></div>
+
+      <a
+        href="#download"
+        class="button secondary"
+      >
+        Get SkinAura
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+
+      <div class="eyebrow">Skincare routine fit</div>
+
+      <h1>
+        Before you add it,
+        <span>check the fit.</span>
+      </h1>
+
+      <p>
+        SkinAura helps you understand whether a skincare product
+        makes sense in the routine you already use — before you layer
+        something new.
+      </p>
+
+      <div class="buttons" id="download">
+
+        <a
+          class="button primary"
+          href="https://apps.apple.com/app/id6789919980"
+          target="_blank"
+          rel="noopener"
+        >
+          Download on the App Store
+        </a>
+
+        <a
+          class="button secondary"
+          href="https://play.google.com/store/apps/details?id=com.skincode.skinaura"
+          target="_blank"
+          rel="noopener"
+        >
+          Get it on Google Play
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+
+      <h2>A product can be good — and still not fit tonight.</h2>
+
+      <p class="section-intro">
+        SkinAura looks beyond a product in isolation and adds the
+        context that matters: what you already use, when you use it,
+        and where the new product may fit.
+      </p>
+
+      <div class="grid">
+
+        <div class="card">
+          <strong>Check ingredients</strong>
+          <p>
+            Paste or scan an ingredient list and review recognized
+            ingredients and relevant cautions.
+          </p>
+        </div>
+
+        <div class="card">
+          <strong>See routine overlap</strong>
+          <p>
+            Understand when your existing routine may already contain
+            enough active skincare.
+          </p>
+        </div>
+
+        <div class="card">
+          <strong>Find the better place</strong>
+          <p>
+            Review whether a product makes more sense in your morning
+            routine, evening routine, or on another day.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+
+      <h2>Questions SkinAura helps you think through</h2>
+
+      <p class="section-intro">
+        Instead of asking only “Is this product good?”, ask whether it
+        fits what you are already using.
+      </p>
+
+      <div class="questions">
+
+        <div class="question">
+          Can I use retinol with salicylic acid?
+        </div>
+
+        <div class="question">
+          Is my routine already using too many actives?
+        </div>
+
+        <div class="question">
+          Should I use this serum in the morning or at night?
+        </div>
+
+        <div class="question">
+          Does this new skincare product overlap with my routine?
+        </div>
+
+        <div class="question">
+          What should I skip tonight?
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+
+      <div class="cta">
+
+        <h2>Check before you layer.</h2>
+
+        <p>
+          Build your routine, check a product, and see how it may fit
+          before you add another step.
+        </p>
+
+        <div class="buttons">
+
+          <a
+            class="button primary"
+            href="https://apps.apple.com/app/id6789919980"
+            target="_blank"
+            rel="noopener"
+          >
+            App Store
+          </a>
+
+          <a
+            class="button secondary"
+            href="https://play.google.com/store/apps/details?id=com.skincode.skinaura"
+            target="_blank"
+            rel="noopener"
+          >
+            Google Play
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+
+    <div>
+      © 2026 SkinAura
+    </div>
+
+    <div>
+      <a href="https://skinaura-dev.github.io/skinaura-privacy/">
+        Privacy Policy
+      </a>
+      &nbsp; · &nbsp;
+      Routine-fit guidance only, not medical advice.
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>
